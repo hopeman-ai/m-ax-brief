@@ -9,7 +9,8 @@
     "typecheck": "tsc -b --noEmit",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages -m \"chore(deploy): publish dist to gh-pages\""
+    "deploy": "gh-pages -d dist -b gh-pages -m \"chore(deploy): publish dist to gh-pages\"",
+    "set-password": "node scripts/set-password.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
