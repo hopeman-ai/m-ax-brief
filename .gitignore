@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vite
+.DS_Store
+
+# 모든 .env 변형은 차단하고 템플릿만 허용한다.
+# (현재 프로젝트는 vite.config.ts 가 OPENAI_API_KEY 를 .env 에서 읽지 않지만,
+#  실수로 키가 들어가더라도 git 에 커밋되지 않도록 강하게 차단해 둔다)
+.env*
+!.env.example

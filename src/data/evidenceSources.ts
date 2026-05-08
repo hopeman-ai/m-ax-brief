@@ -1,0 +1,307 @@
+import type { EvidenceSource } from "../types";
+
+/**
+ * 발행 출처(publisher)와 시점(date)은 자료의 최신성·신뢰성 판단을 돕기 위한 메타 표시입니다.
+ * 추후 실제 인용 근거에 맞춰 보정할 수 있도록 EvidenceSource 타입에 명시 필드로 둡니다.
+ *
+ * date 는 ISO 형식(YYYY 또는 YYYY-MM 또는 YYYY-MM-DD)으로 보관하고,
+ * 표시 시 sourceLookup.formatDate 가 점(.)으로 정규화합니다.
+ */
+export const evidenceSources: EvidenceSource[] = [
+  // ---------- 국내 정책자료 패키지 (산업통상부 / KIAT) ----------
+  {
+    id: "motir-ai-factory-2026",
+    type: "정부 정책자료",
+    title: "제조현장에 AI 입혀 산업기초체력 키운다",
+    region: "한국",
+    publisher: "산업통상부",
+    date: "2026-04-30",
+    summary:
+      "2026년 AI 팩토리 선도사업 신규과제 32개와 국비 527.5억 원 규모 지원, 제조데이터 제출 동의서, R&D 과정의 제조데이터 수집·저장·활용 방향을 제시한 최신 정책자료다.",
+    relevance:
+      "AI Factory, 제조데이터, 대·중소 협력, 데이터·AI 모델 위임형, 업종별 AI 모델 개발 등 M.AX 주제 발굴에 직접 활용할 수 있다.",
+    linkedIssues: [
+      "AI Factory 본격화",
+      "제조데이터 제출·공유 체계",
+      "데이터·AI 모델 위임형 과제",
+      "대·중소 제조 AX 협력",
+    ],
+    linkedTopics: [
+      "AI Factory 운영지능",
+      "업종별 제조데이터 스페이스",
+      "데이터·AI 모델 위임형 주제",
+      "제조 Vertical AI 공통기반",
+    ],
+    url: "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171783/view",
+  },
+  {
+    id: "motir-industrial-complex-max-gx-2026",
+    type: "정부 정책자료",
+    title: "산업단지 M.AX·GX 지원사업 본격 추진",
+    region: "한국",
+    publisher: "산업통상부",
+    date: "2026-04-28",
+    summary:
+      "스마트그린산단 지원사업 통합공모를 통해 M.AX 분야와 GX 분야 신규과제를 선정하고, AX 실증산단, 스마트물류플랫폼, 제조 AX 산학혁신파크, 산업단지 5G 특화망, 엣지 AIDC 실증 등을 추진하는 정책자료다.",
+    relevance:
+      "지역·산단 단위 제조 AX 확산, 엣지 AI 인프라, 스마트물류, 산업단지 데이터 기반 실증 주제 발굴에 활용할 수 있다.",
+    linkedIssues: [
+      "산단 M.AX·GX 통합 추진",
+      "지역 제조 AX 확산",
+      "엣지 AIDC 기반 제조 AX",
+      "스마트물류와 산업단지 효율화",
+    ],
+    linkedTopics: [
+      "산단 AX 실증 허브",
+      "엣지 AI·AIDC 기반 제조 AX",
+      "스마트물류 Vertical AI",
+      "지역 제조 AX 확산모델",
+    ],
+    url: "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171775/view",
+  },
+  {
+    id: "motir-max-alliance-core-tasks-2026",
+    type: "정부 정책자료",
+    title: "M.AX 얼라이언스, AI 개발 위해 제조 데이터 함께 모은다",
+    region: "한국",
+    publisher: "산업통상부",
+    date: "2025-12",
+    summary:
+      "M.AX 얼라이언스 참여기관 확대와 함께 2026년 7,000억 원 투입 계획, 데이터 생성·공유·활용, 부문별 AI 모델 개발, 온디바이스 AI 반도체, 다크팩토리, 지역 AX 확산 등 5대 핵심과제를 제시한 정책자료다.",
+    relevance:
+      "제조데이터, AI 모델 개발, 온디바이스 AI, 다크팩토리, 지역 AX를 M.AX 주제 후보로 구조화하는 핵심 근거자료다.",
+    linkedIssues: [
+      "제조데이터 공유·활용",
+      "부문별 AI 모델 개발",
+      "온디바이스 AI 반도체",
+      "다크팩토리",
+      "지역 AX 확산",
+    ],
+    linkedTopics: [
+      "제조데이터 스페이스",
+      "제조 Vertical AI 공통기반",
+      "온디바이스 제조 AI",
+      "다크팩토리 운영지능",
+      "지역 AX 확산모델",
+    ],
+    url: "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171390/view",
+  },
+  {
+    id: "motir-ai-industrial-convergence-standard-2025",
+    type: "정부 정책자료",
+    title: "AX 시대, AI 산업융합 표준으로 길을 찾다",
+    region: "한국",
+    publisher: "산업통상부 · 국가기술표준원",
+    date: "2025-12-18",
+    summary:
+      "AI 산업융합 표준화 방향을 논의한 자료로, 제조데이터 수집·공유, AI 시스템 상호운용성, 자율제조, 휴머노이드, AI 신뢰성·표준화 이슈와 연결된다.",
+    relevance:
+      "M.AX 서비스의 신뢰성·검증, 표준화, 상호운용성, 자율제조 거버넌스 주제 발굴에 활용할 수 있다.",
+    linkedIssues: [
+      "제조 AI 표준화",
+      "AI 시스템 상호운용성",
+      "자율제조 표준",
+      "휴머노이드 표준화",
+      "AI 신뢰성·검증",
+    ],
+    linkedTopics: [
+      "제조 AI 신뢰성·검증체계",
+      "제조데이터 표준화",
+      "자율제조 상호운용성",
+      "휴머노이드 제조 적용 표준",
+    ],
+    url: "https://www.korea.kr",
+  },
+  {
+    id: "policy-briefing-max-2026-policy",
+    type: "국내 정책자료",
+    title: "M.AX 얼라이언스를 통해 제조 AX 최강국에 도전합니다!",
+    region: "한국",
+    publisher: "정책브리핑 · 산업통상부",
+    date: "2026-01-30",
+    summary:
+      "2026년 달라지는 산업통상정책 중 M.AX 얼라이언스 관련 내용을 소개한 자료로, AI 팩토리 확대, 제조 AX 확산 목표, 생산성·비용·결함·리드타임·에너지 개선 방향을 제시한다.",
+    relevance:
+      "제조 AX 정책 목표와 성과지표를 서비스의 브리프 및 주제후보 설명에 연결할 수 있다.",
+    linkedIssues: [
+      "제조 AX 정책 목표",
+      "AI 팩토리 확산",
+      "제조 생산성 개선",
+      "제조 비용·결함·리드타임 개선",
+      "에너지 효율화",
+    ],
+    linkedTopics: [
+      "AI Factory 운영지능",
+      "제조 AX 성과지표 체계",
+      "에너지 최적화 AI",
+      "품질·리드타임 개선 AI",
+    ],
+    url: "https://www.korea.kr",
+  },
+  {
+    id: "motir-ai-factory-launch-2025",
+    type: "정부 정책자료",
+    title: "산업부, AI 팩토리 본격 추진",
+    region: "한국",
+    publisher: "산업통상부",
+    date: "2025-05-26",
+    summary:
+      "AI 자율제조 사업을 AI 팩토리로 확대 개편하고, 제조 AI 파운데이션 모델, 대·중·소 협력, 휴머노이드 실증, 제조 현장 AI 적용 확대 방향을 제시한 정책자료다.",
+    relevance:
+      "AI Factory 개념의 확장, 제조 AI 파운데이션 모델, 대·중·소 협력 프로젝트, 휴머노이드 실증 주제 발굴에 활용할 수 있다.",
+    linkedIssues: [
+      "AI 자율제조에서 AI Factory로 확대",
+      "제조 AI 파운데이션 모델",
+      "대·중·소 협력",
+      "휴머노이드 실증",
+      "제조 현장 AI 적용",
+    ],
+    linkedTopics: [
+      "AI Factory 운영지능",
+      "제조 AI 파운데이션 모델",
+      "제조 특화 LLM·SLM",
+      "휴머노이드 제조 실증",
+      "대·중·소 제조 AX 협력모델",
+    ],
+    url: "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/170558/view",
+  },
+  {
+    id: "motir-max-alliance-launch-2025",
+    type: "정부 정책자료",
+    title: "제조 AX 최강국 위해 기업들 뭉쳤다",
+    region: "한국",
+    publisher: "산업통상부",
+    date: "2025-09-10",
+    summary:
+      "산업통상부와 대한상의가 M.AX 얼라이언스를 출범하고, 2030년 제조 AX 관련 100조 원 이상 부가가치 창출 목표와 10개 분야별 얼라이언스 구성을 제시한 자료다.",
+    relevance:
+      "M.AX 정책의 출발점이자, AI 팩토리, AI 제조서비스, AI 유통·물류, 자율주행차, 휴머노이드, 자율운항선박, AI 가전, AI 방산, AI 바이오, AI 반도체 등 Vertical AI 주제 구조화의 근거다.",
+    linkedIssues: [
+      "M.AX 얼라이언스 출범",
+      "제조 AX 민관협력",
+      "10대 분야별 얼라이언스",
+      "Vertical AI 정책 구조",
+    ],
+    linkedTopics: [
+      "제조 Vertical AI 공통기반",
+      "AI 팩토리",
+      "AI 제조서비스",
+      "AI 유통·물류",
+      "휴머노이드 제조 적용",
+      "AI 바이오",
+      "AI 반도체",
+    ],
+    url: "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/170896/view",
+  },
+  {
+    id: "kiat-global-manufacturing-ax-2025",
+    type: "산업·기술 보고서",
+    title: "글로벌 제조업 AX 동향 및 국내 정책 대응 방향",
+    region: "한국",
+    publisher: "한국산업기술진흥원 (KIAT)",
+    date: "2025-09-26",
+    summary:
+      "주요국 제조업 AX 동향과 국내 정책 대응 방향을 정리한 공공기관 정책간행물이다. 글로벌 정책 비교와 국내 시사점을 함께 다루는 근거자료로 활용 가능하다.",
+    relevance:
+      "M.AX Brief의 글로벌 비교, 국내 정책 대응, 주제 발굴 방향을 연결하는 핵심 정책간행물이다.",
+    linkedIssues: [
+      "글로벌 제조업 AX 동향",
+      "국내 정책 대응",
+      "주요국 제조 AX 비교",
+      "제조 AX 확산 전략",
+    ],
+    linkedTopics: [
+      "제조 AX 정책 대응 방향",
+      "글로벌 제조 AX 비교 분석",
+      "제조 Vertical AI 주제 발굴",
+      "중소·중견 제조 AX 확산",
+    ],
+    url: "https://www.kiat.or.kr",
+  },
+
+  // ---------- 글로벌 정책·기술 자료 ----------
+  {
+    id: "src-ai-action",
+    type: "정부 정책자료",
+    title: "America's AI Action Plan",
+    region: "미국",
+    publisher: "The White House (OSTP)",
+    date: "2025",
+    summary: "AI 인프라, 혁신, 국가경쟁력, 산업전략을 연결하는 정책 흐름",
+    relevance: "AI 인프라와 첨단제조 경쟁력을 함께 봐야 한다는 시사점",
+    linkedIssues: ["AI 인프라와 제조 경쟁력"],
+    linkedTopics: ["제조 AX 인프라 전략", "AI Factory 공통 기반"],
+  },
+  {
+    id: "src-mfg-usa",
+    type: "정부 정책자료",
+    title: "Manufacturing USA Strategic Plan",
+    region: "미국",
+    publisher: "NIST · U.S. Dept. of Commerce",
+    date: "2024",
+    summary: "첨단제조 생태계와 제조 혁신 네트워크 전략",
+    relevance: "제조 혁신을 산업 생태계와 연결해 보는 관점 제공",
+    linkedIssues: ["첨단제조와 공급망"],
+    linkedTopics: ["AI Factory", "중소 제조 AX 확산"],
+  },
+  {
+    id: "src-meti-robot",
+    type: "정부 정책자료",
+    title: "METI Robot Industry Policy",
+    region: "일본",
+    publisher: "METI Japan",
+    date: "2024",
+    summary: "로봇산업과 제조 현장 자동화 정책 흐름",
+    relevance: "로봇·Physical AI를 제조 AX의 실행 계층으로 보는 근거",
+    linkedIssues: ["로봇·Physical AI"],
+    linkedTopics: ["로봇 안전 AI", "제조 작업지원 AI"],
+  },
+  {
+    id: "src-ai-mfg",
+    type: "정부 정책자료",
+    title: "AI+Manufacturing Policy",
+    region: "중국",
+    publisher: "MIIT China",
+    date: "2024",
+    summary: "AI를 제조업 고도화와 신형공업화에 적용하는 정책 흐름",
+    relevance: "산업별·공정별 AI 적용과 산업 대모델 접근 시사",
+    linkedIssues: ["Vertical AI", "AI+제조"],
+    linkedTopics: ["제조 Vertical AI 공통기반", "소재 AI"],
+  },
+  {
+    id: "src-mds",
+    type: "산업·기술 보고서",
+    title: "Manufacturing Data Spaces",
+    region: "유럽",
+    publisher: "European Commission · IDSA",
+    date: "2024",
+    summary: "제조데이터 공유와 활용을 위한 데이터스페이스 접근",
+    relevance: "제조 AX 확산을 위한 데이터 인프라 관점 제공",
+    linkedIssues: ["제조 데이터스페이스"],
+    linkedTopics: ["업종별 제조데이터 스페이스"],
+  },
+  {
+    id: "src-nist-rmf",
+    type: "국제기구·표준자료",
+    title: "NIST AI RMF",
+    region: "미국",
+    publisher: "NIST",
+    date: "2023",
+    summary: "AI 위험관리 프레임워크 (AI RMF 1.0)",
+    relevance: "제조 AI의 신뢰성·검증체계 설계에 활용 가능",
+    linkedIssues: ["AI 신뢰성·현장 검증"],
+    linkedTopics: ["제조 AI 신뢰성·검증체계"],
+  },
+  {
+    id: "src-iso-42001",
+    type: "국제기구·표준자료",
+    title: "ISO/IEC 42001",
+    region: "글로벌",
+    publisher: "ISO/IEC",
+    date: "2023",
+    summary: "AI 경영시스템 표준",
+    relevance: "제조 AI 운영 조직의 책임성과 관리체계 설계에 참고 가능",
+    linkedIssues: ["AI 거버넌스"],
+    linkedTopics: ["제조 AI 신뢰성·검증체계"],
+  },
+];

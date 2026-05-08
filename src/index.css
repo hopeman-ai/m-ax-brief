@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply font-sans text-slate-800 antialiased bg-slate-50;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  /*
+   * 카드 내부 분류 배지.
+   * 정밀 검색 필터를 제거한 만큼 카드 내부 badge가 분류 정보를 전담한다.
+   * - rounded-full + 작은 padding 으로 정적 태그 형태를 유지
+   * - 클릭 가능한 pill button 처럼 보이지 않도록 font-medium / 절제된 톤
+   */
+  .chip {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-brand-50 text-brand-700;
+  }
+  .chip-accent {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-cyan-50 text-cyan-700;
+  }
+  .chip-warn {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-warn-50 text-warn-700;
+  }
+  .chip-neutral {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600;
+  }
+  /* 화면 헤더 우측의 개수 표시 stat. */
+  .count-stat {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 ring-1 ring-brand-100;
+  }
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
