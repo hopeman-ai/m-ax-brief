@@ -103,36 +103,115 @@ export function DomesticPolicySignalGraph({
         </div>
       </div>
 
-      {/* 데스크톱 — 5-노드 별 모양 배치 + SVG 연결선 */}
+      {/* 데스크톱 — 정책 인과관계도 (좌: 동인·기반 → 중: 핵심 추진 → 우: 확산·고도화) */}
       <div className="hidden lg:block mt-4">
-        <div className="relative bg-white border border-slate-200 rounded-2xl p-6 lg:min-h-[400px] overflow-hidden">
-          {/* 연결선 — 6 relations */}
-          <svg
-            aria-hidden
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            preserveAspectRatio="none"
-            viewBox="0 0 100 100"
-          >
-            <g
-              stroke="rgb(165 180 252)"
-              strokeWidth="1.2"
-              strokeDasharray="4 3"
-              vectorEffect="non-scaling-stroke"
-            >
-              {/* center ↔ 4 corners */}
-              <line x1="50" y1="50" x2="18" y2="20" />
-              <line x1="50" y1="50" x2="82" y2="20" />
-              <line x1="50" y1="50" x2="18" y2="80" />
-              <line x1="50" y1="50" x2="82" y2="80" />
-              {/* top horizontal: 제조데이터 → 파운데이션 */}
-              <line x1="18" y1="20" x2="82" y2="20" />
-              {/* bottom horizontal: 표준화 → 산단 */}
-              <line x1="18" y1="80" x2="82" y2="80" />
-            </g>
-          </svg>
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
+          {/* 컬럼 캡션 — 정책 리포트형 단계 라벨 */}
+          <div className="grid grid-cols-[1fr_auto_1fr] gap-6 lg:gap-8 mb-4 items-baseline">
+            <div className="text-center">
+              <p className="text-[12px] font-semibold uppercase tracking-wider text-slate-500">
+                ① 동인 · 기반
+              </p>
+              <p className="mt-0.5 text-[11px] text-slate-400">
+                정책이 만들어 둔 토대
+              </p>
+            </div>
+            <div className="text-center px-2">
+              <p className="text-[12px] font-semibold uppercase tracking-wider text-brand-700 whitespace-nowrap">
+                ② 핵심 추진
+              </p>
+              <p className="mt-0.5 text-[11px] text-brand-500">
+                현재 가속 중인 정책 사업
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="text-[12px] font-semibold uppercase tracking-wider text-slate-500">
+                ③ 확산 · 고도화
+              </p>
+              <p className="mt-0.5 text-[11px] text-slate-400">
+                기대되는 산업 효과
+              </p>
+            </div>
+          </div>
 
-          {/* 노드 grid (z-index로 SVG 위) */}
-          <div className="relative z-10 grid grid-cols-[1fr_auto_1fr] gap-6 lg:gap-8 items-stretch h-full lg:min-h-[360px]">
+          {/* 그래프 영역: SVG 인과 화살표 + 노드 grid */}
+          <div className="relative lg:min-h-[340px]">
+            <svg
+              aria-hidden
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              preserveAspectRatio="none"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <marker
+                  id="signal-arrow"
+                  viewBox="0 0 10 10"
+                  refX="9"
+                  refY="5"
+                  markerWidth="5"
+                  markerHeight="5"
+                  orient="auto"
+                  markerUnits="strokeWidth"
+                >
+                  <path d="M0,0 L10,5 L0,10 Z" fill="rgb(99 102 241)" />
+                </marker>
+              </defs>
+              <g
+                stroke="rgb(99 102 241)"
+                strokeWidth="1.6"
+                fill="none"
+                vectorEffect="non-scaling-stroke"
+              >
+                {/* ① → ② 입력 화살표 (좌측 노드 → 중앙 노드) */}
+                <line
+                  x1="22"
+                  y1="22"
+                  x2="40"
+                  y2="44"
+                  markerEnd="url(#signal-arrow)"
+                />
+                <line
+                  x1="22"
+                  y1="78"
+                  x2="40"
+                  y2="56"
+                  markerEnd="url(#signal-arrow)"
+                />
+                {/* ② → ③ 출력 화살표 (중앙 노드 → 우측 노드) */}
+                <line
+                  x1="60"
+                  y1="44"
+                  x2="78"
+                  y2="22"
+                  markerEnd="url(#signal-arrow)"
+                />
+                <line
+                  x1="60"
+                  y1="56"
+                  x2="78"
+                  y2="78"
+                  markerEnd="url(#signal-arrow)"
+                />
+                {/* ① → ③ 직접 연결 (위·아래 horizontal) */}
+                <line
+                  x1="26"
+                  y1="13"
+                  x2="74"
+                  y2="13"
+                  markerEnd="url(#signal-arrow)"
+                />
+                <line
+                  x1="26"
+                  y1="87"
+                  x2="74"
+                  y2="87"
+                  markerEnd="url(#signal-arrow)"
+                />
+              </g>
+            </svg>
+
+            {/* 노드 grid (z-index로 SVG 위) */}
+            <div className="relative z-10 grid grid-cols-[1fr_auto_1fr] gap-6 lg:gap-8 items-stretch h-full lg:min-h-[340px]">
             <div className="flex flex-col justify-between gap-4">
               {positioned.topLeft && (
                 <SignalNodeButton
@@ -175,6 +254,7 @@ export function DomesticPolicySignalGraph({
                 />
               )}
             </div>
+          </div>
           </div>
         </div>
       </div>
